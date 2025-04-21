@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MusicApp</string>
+    <string name="welcome_user">welcome_user</string>
+    <string name="admin_area">admin_area</string>
+    <string name="logout">logout</string>
+    <string name="login_welcome">login_welcome</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
 </resources>
