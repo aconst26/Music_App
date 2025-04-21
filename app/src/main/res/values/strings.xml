@@ -7,4 +7,6 @@
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="login">login</string>
+    <string name="preference_file_key">examplePreferenceFileNameMusicApp</string>
+    <string name="preference_userId_key">examplePreferenceUserIdKeyMusicApp</string>
 </resources>
