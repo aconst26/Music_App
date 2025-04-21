@@ -30,15 +30,15 @@ import com.example.musicapp.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String MAIN_ACTIVITY_USER_ID = "com.example.hw04_gymlog.MAIN_ACTIVITY_USER_ID";
+    private static final String MAIN_ACTIVITY_USER_ID = "com.example.musicApp.MAIN_ACTIVITY_USER_ID";
 
-    static final String SAVED_INSTANCE_STATE_USERID_KEY = "com.example.hw04_gymlog.SAVED_INSTANCE_STATE_USERID_KEY";
+    static final String SAVED_INSTANCE_STATE_USERID_KEY = "com.example.musicApp.SAVED_INSTANCE_STATE_USERID_KEY";
     private static final int LOGGED_OUT = -1;
     private ActivityMainBinding binding;
 
     private MusicAppRepository repository;
 
-    public static final String TAG = "DAC_GYMLOG";
+    public static final String TAG = "DAC_MUSICAPP";
 
     private int loggedInUserId = -1;
     private User user;
