@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MusicApp</string>
+    <string name="welcome_user">welcome_user</string>
+    <string name="admin_area">admin_area</string>
+    <string name="logout">logout</string>
+    <string name="login_welcome">login_welcome</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="preference_file_key">daclinkPreferenceFileNameMusicApp</string>
+    <string name="preference_userId_key">daclinkPreferenceUserIdKeyMusicApp</string>
 </resources>

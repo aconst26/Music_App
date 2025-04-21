@@ -50,26 +50,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-
-
         repository = MusicAppRepository.getRepository(getApplication());
         loginUser(savedInstanceState);
 
-        //User is not logged in at this point, go to login screen
-        if(loggedInUserId == LOGGED_OUT) {
-            Intent intent = loginActivity.loginIntentFactory(getApplicationContext());
+        if (loggedInUserId == LOGGED_OUT) {
+            Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
             startActivity(intent);
         }
 
         updateSharedPreference();
 
-
-        binding.logButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
     }
 
@@ -80,19 +70,19 @@ public class MainActivity extends AppCompatActivity {
 
         loggedInUserId = sharedPreferences.getInt(getString(R.string.preference_userId_key), LOGGED_OUT);
 
-        if(loggedInUserId == LOGGED_OUT && savedInstanceState != null && savedInstanceState.containsKey(SAVED_INSTANCE_STATE_USERID_KEY)) {
+        if (loggedInUserId == LOGGED_OUT && savedInstanceState != null && savedInstanceState.containsKey(SAVED_INSTANCE_STATE_USERID_KEY)) {
             loggedInUserId = savedInstanceState.getInt(SAVED_INSTANCE_STATE_USERID_KEY, LOGGED_OUT);
         }
-        if(loggedInUserId == LOGGED_OUT) {
+        if (loggedInUserId == LOGGED_OUT) {
             loggedInUserId = getIntent().getIntExtra(MAIN_ACTIVITY_USER_ID, LOGGED_OUT);
         }
-        if(loggedInUserId == LOGGED_OUT) {
+        if (loggedInUserId == LOGGED_OUT) {
             return;
         }
         LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
         userObserver.observe(this, user1 -> {
             this.user = user1;
-            if(this.user != null) {
+            if (this.user != null) {
                 invalidateOptionsMenu();
             }
         });
@@ -103,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         loggedInUserId = LOGGED_OUT;
         updateSharedPreference();
         getIntent().putExtra(MAIN_ACTIVITY_USER_ID, loggedInUserId);
-        startActivity(loginActivity.loginIntentFactory(getApplicationContext()));
+        startActivity(LoginActivity.loginIntentFactory(getApplicationContext()));
     }
 
     private void updateSharedPreference() {
@@ -124,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.logout_menu,menu);
+        inflater.inflate(R.menu.logout_menu, menu);
         return true;
     }
 
@@ -132,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.logoutMenuItem);
         item.setVisible(true);
-        if(user == null) {
+        if (user == null) {
             return false;
         }
         item.setTitle(user.getUsername());
@@ -174,3 +164,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MAIN_ACTIVITY_USER_ID, userId);
         return intent;
     }
+}

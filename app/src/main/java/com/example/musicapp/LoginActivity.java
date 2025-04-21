@@ -17,7 +17,7 @@ import com.example.musicapp.database.MusicAppRepository;
 import com.example.musicapp.database.entities.User;
 import com.example.musicapp.databinding.ActivityLoginBinding;
 
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
 
@@ -45,15 +45,15 @@ public class loginActivity extends AppCompatActivity {
         String username = binding.userNameLoginEditText.getText().toString();
 
 
-        if(username.isEmpty()) {
+        if (username.isEmpty()) {
             toastMaker("Username should not be blank");
             return;
         }
         LiveData<User> userObserver = repository.getUserByUserName(username);
         userObserver.observe(this, user -> {
-            if(user != null) {
+            if (user != null) {
                 String password = binding.passwordLoginEditText.getText().toString();
-                if(password.equals(user.getPassword())) {
+                if (password.equals(user.getPassword())) {
                     startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
                 } else {
                     toastMaker("Invalid Password");
@@ -71,8 +71,9 @@ public class loginActivity extends AppCompatActivity {
     }
 
     static Intent loginIntentFactory(Context context) {
-        return new Intent(context, loginActivity.class);
+        return new Intent(context, LoginActivity.class);
     }
+
 }
 
 
