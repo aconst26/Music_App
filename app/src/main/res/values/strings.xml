@@ -13,4 +13,8 @@
     <string name="sign_up">Sign up</string>
     <string name="logged_in">LOGGED IN</string>
     <string name="options">Options</string>
+    <string name="signup_page">SignUp Page</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="signup">SignUp!</string>
 </resources>
