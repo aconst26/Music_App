@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -79,11 +80,18 @@ public class MainActivity extends AppCompatActivity {
         if (loggedInUserId == LOGGED_OUT) {
             return;
         }
+
         LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
         userObserver.observe(this, user1 -> {
             this.user = user1;
             if (this.user != null) {
                 invalidateOptionsMenu();
+                Button adminButton = findViewById(R.id.adminButton);
+                if(user.isAdmin()) {
+                    adminButton.setVisibility(View.VISIBLE);
+                } else {
+                    adminButton.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -99,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateSharedPreference() {
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         SharedPreferences.Editor sharedPrefEditor = sharedPreferences.edit();
+
         sharedPrefEditor.putInt(getString(R.string.preference_userId_key), loggedInUserId);
         sharedPrefEditor.apply();
     }
