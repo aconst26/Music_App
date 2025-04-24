@@ -56,6 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
             if (user != null) {
                 toastMaker("Account Already Created. Please Sign in.");
                 binding.userNameSignUpEditText.setSelection(0);
+                return;
             } else {
                 String password = binding.passwordSignUpEditText.getText().toString();
                 String confirmPassword = binding.passwordSignUpConfirmEditText.getText().toString();
@@ -67,9 +68,9 @@ public class SignUpActivity extends AppCompatActivity {
                     binding.passwordSignUpEditText.setSelection(0);
                     binding.passwordSignUpConfirmEditText.setSelection(0);
                 }
+                return;
             }
         });
-
     }
 
     private void toastMaker(String message) {
