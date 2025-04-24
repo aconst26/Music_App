@@ -22,84 +22,81 @@
         android:id="@+id/songBox1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:autofillHints=""
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="241dp"
         android:hint="@string/random_song"
         android:inputType="text"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/songBox2" />
 
     <EditText
         android:id="@+id/songBox2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="32dp"
         android:hint="@string/random_song"
         android:inputType="text"
-        android:autofillHints=""
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/songBox1"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/songBox3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="241dp"
         android:hint="@string/random_song"
         android:inputType="text"
-        android:autofillHints=""
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="334dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/songBox4" />
 
     <EditText
         android:id="@+id/songBox4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="32dp"
         android:hint="@string/random_song"
         android:inputType="text"
-        android:autofillHints=""
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="334dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/songBox3"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/adminButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="588dp"
         android:text="@string/admin_area"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        android:layout_marginTop="192dp"
+        app:layout_constraintTop_toBottomOf="@id/songBox4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameText"
-        tools:visibility="visible" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495" />
 
     <Button
         android:id="@+id/playlists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/playlists"
-        android:visibility="gone"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="644dp"
-        tools:ignore="MissingConstraints"
-        tools:visibility="visible" />
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintTop_toBottomOf="@id/adminButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
-        android:visibility="gone"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="292dp"
-        tools:layout_editor_absoluteY="644dp"
-        tools:visibility="visible" />
-
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintTop_toBottomOf="@id/adminButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
