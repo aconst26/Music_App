@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         repository = MusicAppRepository.getRepository(getApplication());
         loginUser(savedInstanceState);
 
