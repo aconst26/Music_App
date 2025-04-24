@@ -3,7 +3,13 @@
     <style name="Base.Theme.MusicApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary"> @color/lavender</item>
+        <item name="color">@color/orange</item>
+        <item name="colorOnPrimary">@color/red </item>
     </style>
 
     <style name="Theme.MusicApp" parent="Base.Theme.MusicApp" />
+    
+    <style name="ScreenBackground"><item name ="android:background">@color/cardview_dark_background</item> </style>
 </resources>
