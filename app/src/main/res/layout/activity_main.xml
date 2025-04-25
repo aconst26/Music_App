@@ -18,26 +18,85 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <EditText
+        android:id="@+id/songBox1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="241dp"
+        android:hint="@string/random_song"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/songBox2" />
+
+    <EditText
+        android:id="@+id/songBox2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/random_song"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/songBox1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/songBox3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="241dp"
+        android:hint="@string/random_song"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/songBox4" />
+
+    <EditText
+        android:id="@+id/songBox4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/random_song"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/songBox3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <Button
         android:id="@+id/adminButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/admin_area"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/usernameText"
+        android:layout_marginTop="192dp"
+        app:layout_constraintTop_toBottomOf="@id/songBox4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495" />
 
     <Button
-        android:id="@+id/logButton"
+        android:id="@+id/playlists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:layout_marginTop="16dp"
+        android:text="@string/playlists"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintTop_toBottomOf="@id/adminButton"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintTop_toBottomOf="@id/adminButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
