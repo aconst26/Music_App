@@ -18,8 +18,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.TableLayout;
 import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -110,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         initViewPager();
+
 
 
         repository = MusicAppRepository.getRepository(getApplication());
@@ -122,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         updateSharedPreference();
+
 
 
     }
@@ -140,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(adapter.getTitle(position))
         ).attach();
+
 
 
     }
@@ -196,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
         userObserver.observe(this, user1 -> {
             this.user = user1;
+
 //            if (this.user != null) {
 //                invalidateOptionsMenu();
 //                Button adminButton = findViewById(R.id.adminButton);
@@ -205,6 +212,17 @@ public class MainActivity extends AppCompatActivity {
 //                    adminButton.setVisibility(View.GONE);
 //                }
 //            }
+
+            if (this.user != null) {
+                invalidateOptionsMenu();
+                Button adminButton = findViewById(R.id.adminButton);
+                if(user.isAdmin()) {
+                    adminButton.setVisibility(View.VISIBLE);
+                } else {
+                    adminButton.setVisibility(View.GONE);
+                }
+            }
+
         });
 
     }
@@ -288,6 +306,7 @@ public class MainActivity extends AppCompatActivity {
         return intent;
     }
 
+
     private List<String> loadSongsFromAssets() {
         List<String> songList = new ArrayList<>();
         AssetManager assetManager = getAssets();
@@ -309,9 +328,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 }
-
-
-
 

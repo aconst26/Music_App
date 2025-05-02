@@ -43,6 +43,7 @@ dependencies {
     androidTestImplementation libs.espresso.core
 
     def room_version = "2.6.1"
+
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
@@ -65,5 +66,10 @@ dependencies {
     //implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
 
+
+
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
 }
