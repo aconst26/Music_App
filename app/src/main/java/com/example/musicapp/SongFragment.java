@@ -19,7 +19,9 @@ public class SongFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_song, container, false);
+
         recyclerView = view.findViewById(R.id.songRecyclerView);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         AssetManager assetManager = requireContext().getAssets();

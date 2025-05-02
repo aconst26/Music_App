@@ -264,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
 
         alertBuilder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
             @Override
+
             public void onClick(DialogInterface dialog, int which) {
                 logout();
             }
@@ -271,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
 
         alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
+
             public void onClick(DialogInterface dialog, int which) {
                 alertDialog.dismiss();
             }
@@ -294,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
             if (files != null) {
                 for (String file : files) {
                     if (file.endsWith(".mp3")) {
-                        // Remove the .mp3 extension before adding
+
                         songList.add(file.replace(".mp3", ""));
                     }
                 }

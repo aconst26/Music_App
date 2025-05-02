@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="24dp">
 
-    <!-- Song Title -->
+
     <TextView
         android:id="@+id/songTitleTextView"
         android:layout_width="wrap_content"
@@ -15,9 +15,9 @@
         android:textSize="24sp"
         android:textColor="@android:color/black"
         android:layout_marginBottom="32dp"
-        android:gravity="center"/>
+        android:gravity="center" />
 
-    <!-- Current Time Display -->
+
     <TextView
         android:id="@+id/currentTimeTextView"
         android:layout_width="wrap_content"
@@ -26,17 +26,16 @@
         android:textSize="18sp"
         android:textColor="@android:color/darker_gray"
         android:layout_marginBottom="8dp"
-        android:gravity="center"/>
+        android:gravity="center" />
 
-    <!-- SeekBar -->
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="100"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
-    <!-- Duration Display -->
+
     <TextView
         android:id="@+id/durationTextView"
         android:layout_width="wrap_content"
@@ -45,15 +44,41 @@
         android:textSize="18sp"
         android:textColor="@android:color/darker_gray"
         android:layout_marginBottom="32dp"
-        android:gravity="center"/>
+        android:gravity="center" />
 
-    <!-- Play/Pause Button -->
-    <Button
-        android:id="@+id/playPauseButton"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pause"
-        android:textColor="@android:color/white"
-        android:background="?android:attr/selectableItemBackground"
-        android:layout_marginTop="16dp"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <ImageButton
+            android:id="@+id/skipPreviousButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/skip_backward"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/skip_previous" />
+
+        <ImageButton
+            android:id="@+id/playPauseButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/pause_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/play_pause"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <ImageButton
+            android:id="@+id/skipNextButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/skip_forward"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/skip_next" />
+    </LinearLayout>
 </LinearLayout>
+

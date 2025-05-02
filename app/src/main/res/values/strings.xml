@@ -31,4 +31,7 @@
     <string name="_02d_02d">%02d:%02d</string>
     <string name="play">Play</string>
     <string name="pauseButton">Pause</string>
+    <string name="skip_next">Skip Next</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="skip_previous">Skip Previous</string>
 </resources>
