@@ -6,6 +6,8 @@
     <color name="red"> #FF0000</color>
     <color name= "orange"> #FFA500</color>
 
+    <color name="teal_200">#80CBC4</color>
+
 
 
 </resources>

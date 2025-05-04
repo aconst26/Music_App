@@ -5,19 +5,25 @@ pluginManagement {
                 includeGroupByRegex("com\\.android.*")
                 includeGroupByRegex("com\\.google.*")
                 includeGroupByRegex("androidx.*")
+
             }
         }
         mavenCentral()
         gradlePluginPortal()
+
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        // Local AAR support (if you’re using .aar files)
+        flatDir {
+            dirs("app/libs")
+        }
     }
 }
-
-rootProject.name = "MusicApp"
+rootProject.name = "Music_App"
 include ':app'
