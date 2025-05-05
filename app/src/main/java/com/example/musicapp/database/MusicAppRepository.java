@@ -19,6 +19,8 @@ public class MusicAppRepository {
 
     private static MusicAppRepository repository;
 
+
+
     private MusicAppRepository(Application application) {
         MusicAppDatabase db = MusicAppDatabase.getDatabase(application);
         this.userDAO = db.userDAO();
@@ -58,4 +60,9 @@ public class MusicAppRepository {
     public LiveData<User> getUserByUserId(int userId) {
         return userDAO.getUserByUserId(userId);
     }
+
+
+
+
+
 }
