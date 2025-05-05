@@ -42,5 +42,8 @@
     <string name="admin_commands">Admin Commands</string>
     <string name="enter_new_username">Enter new username</string>
     <string name="prev">prev</string>
+    <string name="enter_password_again">Enter password again</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

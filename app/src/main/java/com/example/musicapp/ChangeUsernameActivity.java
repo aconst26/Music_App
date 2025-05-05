@@ -24,7 +24,6 @@ public class ChangeUsernameActivity extends AppCompatActivity {
     private ActivityChangeUsernameBinding binding;
     private MusicAppRepository repository;
     private int loggedInUserId;
-    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +75,8 @@ public class ChangeUsernameActivity extends AppCompatActivity {
                     }
                     currentUserLiveData.removeObservers(this);
                 });
+                Intent intent = AdminActivity.adminIntentFactory(getApplicationContext());
+                startActivity(intent);
             }
         });
     }

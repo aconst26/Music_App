@@ -49,6 +49,14 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        binding.changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = ChangePasswordActivity.changePasswordIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
 
     }
 
