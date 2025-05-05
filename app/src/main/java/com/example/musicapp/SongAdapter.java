@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder> {
 
-    private List<String> songs;  // List of song names WITHOUT .mp3 extension
+    private List<String> songs;
     private Context context;
 
     public SongAdapter(List<String> songs, Context context) {
