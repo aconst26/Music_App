@@ -35,5 +35,12 @@
     <string name="skip_next">Skip Next</string>
     <string name="play_pause">Play/Pause</string>
     <string name="skip_previous">Skip Previous</string>
+    <string name="home">home</string>
+    <string name="set_admin">Set admin</string>
+    <string name="change_username">Change Username</string>
+    <string name="change_password">Change Password</string>
+    <string name="admin_commands">Admin Commands</string>
+    <string name="enter_new_username">Enter new username</string>
+    <string name="prev">prev</string>
 
 </resources>
