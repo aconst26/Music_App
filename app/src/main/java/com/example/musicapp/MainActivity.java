@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -30,6 +32,8 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class MainActivity extends AppCompatActivity {
     private static final String MAIN_ACTIVITY_USER_ID = "com.example.musicApp.MAIN_ACTIVITY_USER_ID";
@@ -54,10 +58,22 @@ public class MainActivity extends AppCompatActivity {
 
         repository = MusicAppRepository.getRepository(getApplication());
 
-        // Delay login to allow UI to render first
-        new Handler(Looper.getMainLooper()).post(() -> loginUser(savedInstanceState));
+        loginUser(savedInstanceState);
+
+        if (loggedInUserId == LOGGED_OUT) {
+            Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
+            startActivity(intent);
+        }
 
         updateSharedPreference();
+
+        binding.adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AdminActivity.adminIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViewPager() {
@@ -120,6 +136,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             });
         }
+        LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
+        userObserver.observe(this, user1 -> {
+            this.user = user1;
+            if (this.user != null) {
+                invalidateOptionsMenu();
+                Button adminButton = findViewById(R.id.adminButton);
+                if(user.isAdmin()) {
+                    adminButton.setVisibility(View.VISIBLE);
+                } else {
+                    adminButton.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     @Override

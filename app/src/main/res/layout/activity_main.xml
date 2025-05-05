@@ -23,11 +23,19 @@
         app:tabBackground="@drawable/tab_indicator"
 
         />
-    <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/ViewPager"
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/ViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="477dp"
 
         />
+    <Button
+        android:id="@+id/adminButton"
+        android:layout_width="200dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="95dp"
+        android:gravity="center"
+        android:text="@string/admin_area" />
+
 </LinearLayout>

@@ -9,6 +9,7 @@ import com.example.musicapp.MainActivity;
 import com.example.musicapp.database.entities.User;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -61,6 +62,15 @@ public class MusicAppRepository {
         return userDAO.getUserByUserId(userId);
     }
 
+    public void updateUser(User user) {
+        MusicAppDatabase.databaseWriteExecutor.execute(() -> {
+            userDAO.update(user);
+        });
+    }
+
+    public LiveData<List<User>> getAllUsers() {
+        return userDAO.getAllUsers();
+    }
 
 
 
