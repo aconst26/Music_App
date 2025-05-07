@@ -45,5 +45,8 @@
     <string name="enter_password_again">Enter password again</string>
     <string name="enter_new_password">Enter new password</string>
     <string name="confirm">Confirm</string>
+    <string name="album">Album</string>
+    <string name="Play">Play</string>
+    <string name="Favorites">Favorites:</string>
 
 </resources>
