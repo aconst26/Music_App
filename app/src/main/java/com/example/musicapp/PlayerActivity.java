@@ -1,9 +1,11 @@
 package com.example.musicapp;
 
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ public class PlayerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_player);
@@ -49,6 +52,17 @@ public class PlayerActivity extends AppCompatActivity {
         skipNextButton = findViewById(R.id.skipNextButton);
 
         skipPreviousButton = findViewById(R.id.skipPreviousButton);
+
+        Button prevButton = findViewById(R.id.prev);
+
+        prevButton.setOnClickListener(v -> {
+            Intent intent = new Intent(PlayerActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+
+
 
         try {
             String[] files = getAssets().list("music");
@@ -190,6 +204,8 @@ public class PlayerActivity extends AppCompatActivity {
 
         }
     }
+
+
 }
 
 
