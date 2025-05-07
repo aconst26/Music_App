@@ -2,21 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:id="@+id/albumTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="10dp"
             android:text="@string/album"
             android:textSize="23sp"
             android:textStyle="bold" />
@@ -25,21 +25,24 @@
             android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/Play" />
+            android:text="@string/play"
+            android:contentDescription="@string/play2" />
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="24dp" />
 
     <TextView
         android:id="@+id/favoritesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Favorites"
+        android:text="@string/favorites"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_gravity="start" />
+        android:layout_marginBottom="8dp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/albumRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
 </LinearLayout>
