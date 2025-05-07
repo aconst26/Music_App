@@ -15,9 +15,15 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
     private List<String> songs;
     private Context context;
+    private String directoryPath;
 
-    public SongAdapter(List<String> songs, Context context) {
-        this.songs = songs;
+    public SongAdapter(List<String> songList, Context context, String directoryPath) {
+        this.songs = songList;
+        this.context = context;
+        this.directoryPath = directoryPath;
+    }
+    public SongAdapter(List<String> songList, Context context) {
+        this.songs = songList;
         this.context = context;
     }
 

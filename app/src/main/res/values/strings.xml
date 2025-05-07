@@ -48,5 +48,7 @@
     <string name="album">Album</string>
     <string name="Play">Play</string>
     <string name="Favorites">Favorites:</string>
+    <string name="play2">Play</string>
+    <string name="favorites">Favorites</string>
 
 </resources>

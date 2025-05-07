@@ -5,11 +5,16 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,6 +59,7 @@ public class PlayerActivity extends AppCompatActivity {
         skipPreviousButton = findViewById(R.id.skipPreviousButton);
 
         Button prevButton = findViewById(R.id.prev);
+        Button favorites = findViewById(R.id.favorite);
 
         prevButton.setOnClickListener(v -> {
             Intent intent = new Intent(PlayerActivity.this, MainActivity.class);
@@ -123,6 +129,38 @@ public class PlayerActivity extends AppCompatActivity {
 
             }
         });
+
+        favorites.setOnClickListener(v -> {
+            String songTitle2 = songList.get(currentSongIndex);
+            String assetPath = "music/" + songTitle2 + ".mp3";
+
+            // Destination: /data/data/your.package.name/files/favorites/song.mp3
+            File favoritesDir = new File(getFilesDir(), "favorites");
+            if (!favoritesDir.exists()) {
+                favoritesDir.mkdirs(); // create folder if it doesn't exist
+            }
+
+            File destinationFile = new File(favoritesDir, songTitle2 + ".mp3");
+
+            try (AssetFileDescriptor afd = getAssets().openFd(assetPath);
+                 FileInputStream in = afd.createInputStream();
+                 FileOutputStream out = new FileOutputStream(destinationFile)) {
+
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = in.read(buffer)) > 0) {
+                    out.write(buffer, 0, length);
+                }
+
+                Log.d("CopyStatus", "File copied to: " + destinationFile.getAbsolutePath());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e("CopyStatus", "Failed to copy: " + e.getMessage());
+            }
+        });
+
+
     }
 
     private void playSong(String songTitle) {
@@ -205,9 +243,19 @@ public class PlayerActivity extends AppCompatActivity {
         }
     }
 
+    public void copyFile(File src, File dst) throws IOException {
+        try (FileInputStream in = new FileInputStream(src);
+             FileOutputStream out = new FileOutputStream(dst)) {
+
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = in.read(buffer)) > 0) {
+                out.write(buffer, 0, length);
+            }
+        }
+    }
+
 
 }
-
-
 
 
