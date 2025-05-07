@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 
 import android.content.res.AssetManager;
 
+import com.example.musicapp.database.entities.Song;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -78,7 +80,32 @@ public class ExampleUnitTest {
         String result = verifyUser("alice", "1234", new User("alice", "1234"));
         assertEquals("Login Success", result);
     }
-}
+
+    //Krishneet's Test
+    public class PlayerActivityTest {
+
+        private PlayerActivity playerActivity;
+        private Song song;
+
+        @Before
+        public void setUp() {
+            playerActivity = new PlayerActivity();
+            song = new Song();
+            playerActivity.playSong(String.valueOf(song));
+        }
+
+        @Test
+        public void testPlayerActivityNotNull() {
+            assertNotNull("PlayerActivity should be initialized", playerActivity);
+        }
+
+        @Test
+        public void testPlaySong() {
+            playerActivity.playSong();
+            assertTrue("Song should be playing", playerActivity.playSong());
+        }
+
+    }
 
 
 
